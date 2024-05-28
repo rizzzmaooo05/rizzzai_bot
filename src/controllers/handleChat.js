@@ -13,8 +13,8 @@ export default async function handleChat(req, res) {
           content: chatMessage
         }
       ],
-      model: 'llama3-8b-8192',
-      temperature: 0.2
+      model: 'llama3-70b-8192',
+      temperature: 0.1,
     })
   
     const data = groq.choices[0].message.content
