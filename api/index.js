@@ -4,12 +4,6 @@ import cors from 'cors'
 
 import models from "../src/models/models.js";
 
-const app = express()
-app.use(express.json())
-app.use(router)
-app.use(cors({credentials: true}))
-app.listen(9002, () => console.log('server run!'))
-
 const bot = models.botTelegramClient()
 bot.on('message', async (response) => {
   const id = response.from.id
@@ -40,3 +34,10 @@ bot.on('message', async (response) => {
     bot.sendMessage(id, 'Gagal terkoneksi ke API, coba lagi nanti!')
   }
 })
+
+const app = express()
+app.use(express.json())
+app.use(router)
+app.use(cors({credentials: true}))
+app.listen(9002, () => console.log('server run!'))
+
